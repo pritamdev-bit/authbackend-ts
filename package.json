@@ -1,0 +1,15 @@
+{
+  "name": "authbackend-ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "bun run dist/index.js",
+    "dev": "tsc-watch --onSuccess \"bun run dist/index.js\""
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tsc-watch": "^7.2.0",
+    "typescript": "^5"
+  }
+}
