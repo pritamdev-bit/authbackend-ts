@@ -23,8 +23,10 @@ export function authMiddleware() {
     }
 }
 
-export function restrictToAuthenticated(req: Request, res: Response, next: NextFunction) {
-    // @ts-ignore
-    if (!req.user) return res.status(401).json({ message: 'unauthorized user' })
-    return next();
+export function restrictToAuthenticated() {
+    return function (req: Request, res: Response, next: NextFunction) {
+        // @ts-ignore
+        if (!req.user) return res.status(401).json({ message: 'unauthorized user' })
+        return next();
+    }
 }
