@@ -52,6 +52,18 @@ class AuthenticationController {
 
         return res.status(200).json({message: 'user signed in successfully', data: { token }});
     }
+
+    public async handleMe (req: Request, res: Response) {
+        // @ts-ignore
+        const { id } = req.user;
+        const [user] = await db.select().from(userTable).where(eq(userTable.id, id));
+
+        return res.json({
+            firstName: user?.firstName,
+            lastName: user?.lastName,
+            email: user?.email
+        })
+    }
 }
 
 export default AuthenticationController

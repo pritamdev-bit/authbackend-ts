@@ -7,3 +7,4 @@ export const authRouter = express.Router();
 
 authRouter.post('/sign-up', authenticationController.handleSignup.bind(authenticationController));
 authRouter.post('/sign-in', authenticationController.handleSignin.bind(authenticationController));
+authRouter.get('/me', authenticationController.handleMe.bind(authenticationController));

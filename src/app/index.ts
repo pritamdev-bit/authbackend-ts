@@ -1,11 +1,13 @@
 import express from "express";
 import { authRouter } from "./auth/routes.js";
+import { authMiddleware } from "./middleware/auth-middleware.js";
 
 export function createExpressApplication() {
     const app = express();
 
     // middlewares
     app.use(express.json());
+    app.use(authMiddleware());
 
     // routes
     app.get('/', (req, res) => {
